@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>feed-a-dog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="messages">
+        <div id="message-container">
+          <div id="title">腹ペコゲーム</div>
+          <div id="message"></div>
+        </div>
+        <div id="info-container">
+          <div id="high-score" class="info"></div>
+          <div id="score" class="info"></div>
+          <div id="time-left" class="info"></div>
+        </div>
+      </div>
+
+      <div id="board"></div>
+      <div id="btn-wrapper">
+        <div id="start" class="btn">スタート</div>
+        <div id="reset" class="btn">リセット</div>
+        <div id="show-rule" class="btn">ルール</div>
+      </div>
+      <audio id="correct">
+        <source src="sounds/correct.mp3" />
+      </audio>
+      <audio id="uncorrect">
+        <source src="sounds/uncorrect.mp3" />
+      </audio>
+      <div id="rule">
+        <button id="close-rule">&times;</button>
+        <h3>ゲーム説明</h3>
+        <p>
+          腹ペコ犬に餌を与えるとプラス1点です。<br />
+          吠えている犬に餌を与えるとマイナス1点です。<br />
+          制限時間は20秒です。
+        </p>
+      </div>
+      <div id="overlay-blur" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

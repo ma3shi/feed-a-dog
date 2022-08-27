@@ -1,0 +1,218 @@
+＊ {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background-color: #d0f4de;
+}
+
+#container {
+  max-width: 800px;
+  width: 80vw;
+  height: 100vh;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* メッセージ取りまとめ*/
+#messages {
+  width: 100%;
+  height: 13%;
+  display: flex;
+}
+
+#message-container {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+/* タイトル */
+#title {
+  width: 100%;
+  height: 60%;
+  font-size: 2.5rem;
+  color: blue;
+  text-align: center;
+  letter-spacing: 8px;
+}
+/* メッセージ */
+#message {
+  width: 100%;
+  height: 40%;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: blue;
+  letter-spacing: 8px;
+}
+
+/* ハイスコア,スコア,残り時間とりまとめ*/
+#info-container {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ハイスコア,スコア,残り時間*/
+.info {
+  height: 30%;
+  font-size: 1.2rem;
+  color: blue;
+  text-align: left;
+}
+
+/* ボード */
+#board {
+  width: 80%;
+  height: 60%;
+  margin: 1rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* パネル */
+.panel {
+  background: #74c0fc;
+  border: solid #fff 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 犬 */
+.dog {
+  position: absolute;
+  top: 100%;
+  transition: 0.4s;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+/* 腹ペコ犬 */
+.panel.hungry .dog {
+  background-image: url("img/hungry.png");
+  top: 0;
+}
+
+/* 吠える犬 */
+.panel.bark .dog {
+  background-image: url("img/bark.png");
+  top: 0;
+}
+
+/* まんぷく犬 */
+.panel.full .dog {
+  background-image: url("img/full.png");
+}
+
+/* ボタンとりまとめ */
+#btn-wrapper {
+  width: 100%;
+  height: 7%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* ボタン */
+.btn {
+  width: 25%;
+  height: 100%;
+  border-radius: 100px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: blue;
+  cursor: pointer;
+  user-select: none;
+  border: 1px #fff solid;
+  letter-spacing: 8px;
+}
+
+/* ボタンをホバー */
+.btn:not(.inactive):hover {
+  color: blue;
+  background: #fff;
+  border: blue 2px solid;
+}
+
+/* ボタンを押す */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* 使用不可時 */
+.inactive {
+  cursor: not-allowed;
+}
+
+/* ゲームルール */
+#rule {
+  /* 上下左右中央に寄せる */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  width: 40%;
+  color: black;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 48px 80px rgba(0, 0, 0, 0.3);
+  /* overlayより上に重ねる */
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#rule p {
+  line-height: 1.7;
+}
+
+/* ルールをだす */
+#rule.show {
+  transform: translate(-50%, 0);
+}
+
+/* ぼかしを隠す */
+.hidden {
+  display: none;
+}
+
+/* ぼかしをかぶせる */
+#overlay-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* ぼかしを入れる  px単位でぼやけ具合を指定*/
+  backdrop-filter: blur(3px);
+  /* modalの下に置く */
+  z-index: 5;
+}
+
+/* ルールを閉じるボタン */
+#close-rule {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  color: black;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
